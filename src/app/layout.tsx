@@ -19,7 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-black text-white`}>
         <Navbar />
-        {children}
+        <main className="min-h-screen pt-32 pb-20"> {/* Espaço para a navbar e padding */}
+          <div className="max-w-5xl mx-auto px-4"> {/* Container centralizado */}
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );
