@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { FiCode, FiDownload, FiMail } from 'react-icons/fi';
+import { FiCode, FiDownload } from 'react-icons/fi';
 import Link from 'next/link';
 import SocialLinks from './SocialLinks';
 
