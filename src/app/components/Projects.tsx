@@ -20,7 +20,7 @@ const projects = [
       },
     },
     details: {
-      show: true, // Exibe ou não o botão "See details"
+      show: false, // Exibe ou não o botão "See details"
       // Outras propriedades para a modal:
       description: 'Descrição detalhada do projeto...',
       image: '/path/to/image.png', // Pode ser opcional
