@@ -36,7 +36,7 @@ export default function Projects() {
         >
           Projetos Recentes
         </motion.h2>
-        
+
         <div className="grid gap-8 md:grid-cols-2">
           {projects.map((project) => (
             <motion.div
@@ -56,11 +56,11 @@ export default function Projects() {
                   <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-1000">
                     {project.description}
                   </p>
-                  
+
                   {/* Tags de Tecnologias */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((tech, index) => (
-                      <span 
+                      <span
                         key={index}
                         className="px-3 py-1 text-sm bg-purple-100 dark:bg-purple-400/10 text-purple-600 dark:text-purple-400 rounded-full transition-colors duration-1000"
                       >
@@ -78,10 +78,12 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-1000 text-black dark:text-white"
                   >
-                    <FiGithub className="w-5 h-5 transition-colors duration-1000" />
+                    <div className="text-black dark:text-white transition-colors duration-1000">
+                      <FiGithub className="w-5 h-5 inline-block" />
+                    </div>
                     Code
                   </a>
-                  
+
                   <a
                     href={project.links.live}
                     target="_blank"
