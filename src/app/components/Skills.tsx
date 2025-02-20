@@ -8,6 +8,8 @@ const skills = [
   { name: 'Tailwind CSS', level: 95 },
   { name: 'Node.js', level: 80 },
   { name: 'Figma', level: 75 },
+  { name: 'C', level: 90 },
+  { name: 'Java', level: 60 },
 ];
 
 export default function Skills() {
@@ -19,7 +21,7 @@ export default function Skills() {
           whileInView={{ opacity: 1 }}
           className="text-3xl font-bold mb-12 text-black dark:text-white transition-colors duration-1000"
         >
-          Minhas Habilidades
+          My skills
         </motion.h2>
 
         <div className="grid gap-8 md:grid-cols-2">

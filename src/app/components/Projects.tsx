@@ -34,7 +34,7 @@ export default function Projects() {
           whileInView={{ opacity: 1 }}
           className="text-3xl font-bold mb-12 text-black dark:text-white transition-colors duration-1000"
         >
-          Projetos Recentes
+          Recent projects
         </motion.h2>
 
         <div className="grid gap-8 md:grid-cols-2">
