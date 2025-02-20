@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  darkMode: "class", // Adicione esta linha
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +12,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        transitionProperty: {
+          'colors': 'background-color, color, border-color, fill, stroke',
+        },
+        transitionDuration: {
+          'theme': '1000ms',
+        },
       },
     },
   },
