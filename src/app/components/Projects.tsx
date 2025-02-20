@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink, FiInfo, FiX } from 'react-icons/fi';
 import { Project } from '../types';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -19,7 +20,7 @@ const projects = [
       },
     },
     details: {
-      show: false, // Exibe ou não o botão "See details"
+      show: true, // Exibe ou não o botão "See details"
       // Outras propriedades para a modal:
       description: 'Descrição detalhada do projeto...',
       image: '/path/to/image.png', // Pode ser opcional
@@ -73,78 +74,78 @@ export default function Projects() {
 
         <div className="grid gap-8 md:grid-cols-2">
           {projects
-          .filter((project) => project.show) 
-          .map((project) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className="group bg-gray-100 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-300 dark:border-white/10 backdrop-blur-sm hover:border-purple-500 dark:hover:border-purple-400/30 transition-all duration-1000"
-            >
-              <div className="flex flex-col h-full transition-colors duration-1000">
-                {/* Cabeçalho */}
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2 text-black dark:text-white transition-colors duration-1000">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-1000">
-                    {project.description}
-                  </p>
+            .filter((project) => project.show)
+            .map((project) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="group bg-gray-100 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-300 dark:border-white/10 backdrop-blur-sm hover:border-purple-500 dark:hover:border-purple-400/30 transition-all duration-1000"
+              >
+                <div className="flex flex-col h-full transition-colors duration-1000">
+                  {/* Cabeçalho */}
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold mb-2 text-black dark:text-white transition-colors duration-1000">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-1000">
+                      {project.description}
+                    </p>
 
-                  {/* Tags de Tecnologias */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 text-sm bg-purple-100 dark:bg-purple-400/10 text-purple-600 dark:text-purple-400 rounded-full transition-colors duration-1000"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                    {/* Tags de Tecnologias */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tech.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 text-sm bg-purple-100 dark:bg-purple-400/10 text-purple-600 dark:text-purple-400 rounded-full transition-colors duration-1000"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                {/* Botões de Ação */}
-                <div className="flex gap-4 mt-auto">
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-1000 text-black dark:text-white"
-                  >
-                    <FiGithub className="w-5 h-5" />
-                    Code
-                  </a>
-
-                  {/* Botão "See online" condicional */}
-                  {project.links?.live?.show && (
+                  {/* Botões de Ação */}
+                  <div className="flex gap-4 mt-auto">
                     <a
-                      href={project.links.live.url}
+                      href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 rounded-2xl transition-colors duration-1000 text-white"
+                      className="flex items-center gap-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-1000 text-black dark:text-white"
                     >
-                      <FiExternalLink className="w-5 h-5" />
-                      See online
+                      <FiGithub className="w-5 h-5" />
+                      Code
                     </a>
-                  )}
 
-                  {/* Botão "See details" condicional */}
-                  {project.details?.show && (
-                    <button
-                      onClick={() => openModal(project)}
-                      className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 rounded-2xl transition-colors duration-1000 text-white"
-                    >
-                      <FiInfo className="w-5 h-5" />
-                      See details
-                    </button>
-                  )}
+                    {/* Botão "See online" condicional */}
+                    {project.links?.live?.show && (
+                      <a
+                        href={project.links.live.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 rounded-2xl transition-colors duration-1000 text-white"
+                      >
+                        <FiExternalLink className="w-5 h-5" />
+                        See online
+                      </a>
+                    )}
+
+                    {/* Botão "See details" condicional */}
+                    {project.details?.show && (
+                      <button
+                        onClick={() => openModal(project)}
+                        className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 rounded-2xl transition-colors duration-1000 text-white"
+                      >
+                        <FiInfo className="w-5 h-5" />
+                        See details
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
         </div>
       </div>
 
@@ -165,10 +166,13 @@ export default function Projects() {
               {selectedProject.details.description}
             </p>
             {selectedProject.details.image && (
-              <img
+              <Image
                 src={selectedProject.details.image}
                 alt={selectedProject.title}
-                className="w-full mb-4 rounded"
+                width={600} // Defina uma largura ou use layout="responsive"
+                height={400} // Defina uma altura proporcional ou use layout="responsive"
+                className="rounded" // Continue com suas classes para borda arredondada
+                layout="responsive" // Para tornar a imagem responsiva
               />
             )}
             {/* Botões dentro da modal */}
