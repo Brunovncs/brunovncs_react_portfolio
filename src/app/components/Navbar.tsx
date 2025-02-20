@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { FiCode, FiDownload, FiSun, FiMoon } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import SocialLinks from './SocialLinks';
 
 export default function Navbar() {
