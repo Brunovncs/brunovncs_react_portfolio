@@ -8,20 +8,64 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #e5e5e5; /* Cor clara */
+  background: #e5e5e5;
+  /* Cor clara */
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #0a0a0a; /* Cor escura */
+  background: #0a0a0a;
+  /* Cor escura */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d4; /* Cor clara */
+  background: #d4d4d4;
+  /* Cor clara */
   border-radius: 4px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #1f1f1f; /* Cor escura */
+  background: #1f1f1f;
+  /* Cor escura */
+}
+
+/* Garante que as imagens não ultrapassem o container */
+.relative.h-48 {
+  max-height: 300px;
+  min-height: 200px;
+}
+
+/* Ajuste de responsividade */
+@media (max-width: 640px) {
+  .relative.h-48 {
+    height: 180px;
+  }
+}
+
+.fixed.inset-0 {
+  transition: opacity 0.3s ease;
+}
+
+/* Efeito de zoom ao abrir a imagem */
+img.object-contain {
+  transition: transform 0.3s ease;
+}
+
+img.object-contain:hover {
+  transform: scale(1.02);
+}
+
+/* Efeito de zoom suave */
+.group:hover img {
+  transform: scale(1.05);
+}
+
+/* Ajuste de transição */
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+}
+
+.transition-opacity {
+  transition: opacity 0.3s ease-in-out;
 }
 
 html {

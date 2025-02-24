@@ -14,7 +14,7 @@ export interface Project {
     details: {
       show: boolean;
       description?: string;
-      image?: string;
+      images?: string[];
     };
   }
   
