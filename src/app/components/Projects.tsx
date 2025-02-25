@@ -59,17 +59,17 @@ export default function Projects() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const goToNextImage = () => {
-    if (selectedProject?.details.images) {
-      setCurrentImageIndex((prev) => (prev + 1) % selectedProject.details.images.length);
-    }
+    const images = selectedProject?.details?.images;
+    if (!images || images.length === 0) return;
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
-
+  
   const goToPrevImage = () => {
-    if (selectedProject?.details.images) {
-      setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.details.images.length - 1 : prev - 1
-      );
-    }
+    const images = selectedProject?.details?.images;
+    if (!images || images.length === 0) return;
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
   };
 
 
