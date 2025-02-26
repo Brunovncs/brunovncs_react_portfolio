@@ -63,7 +63,7 @@ export default function Projects() {
     if (!images || images.length === 0) return;
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
-  
+
   const goToPrevImage = () => {
     const images = selectedProject?.details?.images;
     if (!images || images.length === 0) return;
@@ -176,7 +176,7 @@ export default function Projects() {
       {/* Modal para exibir os detalhes do projeto */}
       {selectedProject && (
         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl relative max-w-3xl w-full border-[1px] border-purple-500 mx-4">
+          <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl relative max-w-3xl w-full border-[1px] border-purple-500 mx-4 max-h-[80vh] overflow-y-auto">
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -186,40 +186,43 @@ export default function Projects() {
             <h2 className="text-2xl font-bold mb-4 text-black dark:text-white text-center">
               {selectedProject.title}
             </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              {selectedProject.details.description}
-            </p>
-            {selectedProject.details.images && selectedProject.details.images.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                {selectedProject.details.images.map((image, index) => (
-                  <div
-                    key={index}
-                    className="relative h-48 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden cursor-pointer group"
-                    onClick={() => setFullscreenImage(image)}
-                  >
-                    {/* Imagem */}
-                    <Image
-                      src={image}
-                      alt={`${selectedProject.title} - Imagem ${index + 1}`}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">  {/* Divisão do conteúdo entre descrição e imagens em 2 colunas */}
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                {selectedProject.details.description}
+              </p>
+              {selectedProject.details.images && selectedProject.details.images.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  {selectedProject.details.images.map((image, index) => (
+                    <div
+                      key={index}
+                      className="relative h-48 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden cursor-pointer group"
+                      onClick={() => setFullscreenImage(image)}
+                    >
+                      {/* Imagem */}
+                      <Image
+                        src={image}
+                        alt={`${selectedProject.title} - Imagem ${index + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
 
-                    {/* Overlay escuro */}
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      {/* Overlay escuro */}
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                    {/* Ícone de lupa */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <FiZoomIn className="w-8 h-8 text-white" />
+                      {/* Ícone de lupa */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <FiZoomIn className="w-8 h-8 text-white" />
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
+
 
       {/* Modal de imagem em tela cheia */}
       {fullscreenImage && selectedProject?.details.images && (
