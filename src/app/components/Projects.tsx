@@ -25,14 +25,39 @@ const projects = [
       // Outras propriedades para a modal:
       description: 'The primary goal of AnotaAI is to create an application where users can add, review, edit, and delete flashcards in different collections.',
       images: [ // Agora é um array de imagens
-        '/pngs/loginScreen.png',
-        '/pngs/cardsScreen.png',
-        '/pngs/cardScreen.png'
+        '/pngs/anotaAI/loginScreen.png',
+        '/pngs/anotaAI/cardsScreen.png',
+        '/pngs/anotaAI/cardScreen.png'
       ],
     },
   },
   {
     id: 2,
+    title: 'Operational System simulator',
+    description: 'Here I develop an interactive interface using ncurses and low-level technologies to manipulate tasks.',
+    tech: ['C', 'ncurses', 'threads', 'semaphors'],
+    show: true,
+    links: {
+      github: 'https://github.com/Brunovncs/opsysSim',
+      live: {
+        url: 'https://exemplo.com',
+        show: false, // Define se o botão "See online" deve aparecer
+      },
+    },
+    details: {
+      show: true, // Exibe ou não o botão "See details"
+      // Outras propriedades para a modal:
+      description: 'Operational System simulator. Here I develop an interactive interface using ncurses, where you can manipulate infos about processes and simulate how an operational system uses complex concepts of threads and semaphors to read and write tasks. I even demonstrate the possibility of deadlocks happening in the system.',
+      images: [ // Agora é um array de imagens
+        '/pngs/opsSysSim/main_interface.png',
+        '/pngs/opsSysSim/process_running.png',
+        '/pngs/opsSysSim/semaphor.png',
+        '/pngs/opsSysSim/finished.png'
+      ],
+    },
+  },
+  {
+    id: 3,
     title: 'Aplicativo Web',
     description: 'Dashboard com gráficos interativos',
     tech: ['React', 'TypeScript', 'Chart.js'],
