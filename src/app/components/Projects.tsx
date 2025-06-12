@@ -58,6 +58,28 @@ const projects = [
   },
   {
     id: 3,
+    title: 'Speech to text AI software (Speech2Text)',
+    description: 'A little project using threads and Whisper (an OpenAI model) to convert speech to text.',
+    tech: ['Python', 'Qt', 'Threads', 'Signals'],
+    show: true,
+    links: {
+      github: 'https://github.com/Brunovncs/speechtotext',
+      live: {
+        url: 'https://exemplo.com',
+        show: false, // Define se o botão "See online" deve aparecer
+      },
+    },
+    details: {
+      show: true, // Exibe ou não o botão "See details"
+      description: 'This project is a desktop application for high-accuracy audio transcription, built with Python and PySide6. Its core feature is a dynamic model-switching system that allows the user to choose the best balance between speed and accuracy by selecting different OpenAI Whisper models on the fly. To ensure a smooth, non-blocking user experience, all intensive operations—such as loading multi-gigabyte AI models and running the transcription—are offloaded to separate background threads using Qts QThread. This architecture guarantees the UI remains fully responsive at all times, demonstrating a practical application of multithreading in a desktop GUI environment.',
+      images: [
+        '/pngs/speech2text/interface.png',
+        '/pngs/speech2text/interface_transcript.png'
+      ],
+    },
+  },
+  {
+    id: 4,
     title: 'Aplicativo Web',
     description: 'Dashboard com gráficos interativos',
     tech: ['React', 'TypeScript', 'Chart.js'],
