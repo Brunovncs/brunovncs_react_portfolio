@@ -11,7 +11,7 @@ export default function Hero() {
         
       >
         <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent transition-colors duration-1000">
-          Front-End Developer
+          AI & Web Developer
         </h1>
         <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 transition-colors duration-1000">
           Welcome to my personal portfolio
