@@ -80,21 +80,21 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Aplicativo Web',
-    description: 'Dashboard com gráficos interativos',
-    tech: ['React', 'TypeScript', 'Chart.js'],
-    show: false,
+    title: 'Swales - Scientific Writing',
+    description: 'Web application with an BERT AI model ported in ONNX and trained with pytorch to help students and researchers write scientific articles. The application provides real-time feedback on the structure and coherence of the text.',
+    tech: ['React', 'TypeScript', 'BERT'],
+    show: true,
     links: {
-      github: 'https://github.com/Brunovncs/AnotaAI',
+      github: 'https://github.com/Brunovncs/rethorical-project',
       live: {
-        url: 'https://exemplo.com',
-        show: false, // Define se o botão "See online" deve aparecer
+        url: 'https://swales.com.br',
+        show: true, // Define se o botão "See online" deve aparecer
       },
     },
     details: {
       show: false, // Exibe ou não o botão "See details"
       // Outras propriedades para a modal:
-      description: 'Descrição detalhada do projeto...',
+      description: 'Web application with an BERT AI model ported in ONNX and trained with pytorch to help students and researchers write scientific articles. The application provides real-time feedback on the structure and coherence of the text.',
       image: '/path/to/image.png', // Pode ser opcional
     },
   },
