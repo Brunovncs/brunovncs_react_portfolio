@@ -85,7 +85,7 @@ const projects = [
     tech: ['React', 'TypeScript', 'BERT'],
     show: true,
     links: {
-      github: 'https://github.com/Brunovncs/rethorical-project',
+      github: 'https://github.com/Brunovncs/SwalesScientificWriting',
       live: {
         url: 'https://swales.com.br',
         show: true, // Define se o botão "See online" deve aparecer
