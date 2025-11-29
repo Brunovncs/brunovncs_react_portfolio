@@ -88,14 +88,32 @@ const projects = [
       github: 'https://github.com/Brunovncs/SwalesScientificWriting',
       live: {
         url: 'https://swales.com.br',
-        show: true, // Define se o botão "See online" deve aparecer
+        show: true,
       },
     },
     details: {
-      show: false, // Exibe ou não o botão "See details"
-      // Outras propriedades para a modal:
+      show: false,
       description: 'Web application with an BERT AI model ported in ONNX and trained with pytorch to help students and researchers write scientific articles. The application provides real-time feedback on the structure and coherence of the text.',
-      image: '/path/to/image.png', // Pode ser opcional
+      image: '/path/to/image.png',
+    },
+  },
+  {
+    id: 5,
+    title: 'Loveflow - Manage your contatinhos',
+    description: 'Aplicação web de um CRM focado em relacionamentos amorosos, ajudando usuários a organizar e acompanhar suas interações com potenciais parceiros. Esse projeto é apenas uma brincadeira entre amigos e não deve ser levado a sério.',
+    tech: ['React', 'TypeScript', 'BERT'],
+    show: true,
+    links: {
+      github: 'https://github.com/Brunovncs/loveflow',
+      live: {
+        url: 'https://loveflow.vercel.app/',
+        show: true,
+      },
+    },
+    details: {
+      show: false,
+      description: 'Web application with an BERT AI model ported in ONNX and trained with pytorch to help students and researchers write scientific articles. The application provides real-time feedback on the structure and coherence of the text.',
+      image: '/path/to/image.png',
     },
   },
 ];
@@ -129,8 +147,6 @@ export default function Projects() {
   const closeModal = () => {
     setSelectedProject(null);
   };
-
-
 
   return (
     <section className="py-20 transition-colors duration-1000" id="projects">
@@ -222,7 +238,9 @@ export default function Projects() {
 
       {/* Modal para exibir os detalhes do projeto */}
       {selectedProject && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+        <div
+          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-90 z-50"
+          onClick={closeModal}>
           <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl relative max-w-3xl w-full border-[1px] border-purple-500 mx-4 max-h-[80vh] overflow-y-auto">
             <button
               onClick={closeModal}
