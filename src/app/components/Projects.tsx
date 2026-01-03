@@ -101,7 +101,7 @@ const projects = [
     id: 5,
     title: 'Loveflow - Manage your contatinhos',
     description: 'Aplicação web de um CRM focado em relacionamentos amorosos, ajudando usuários a organizar e acompanhar suas interações com potenciais parceiros. Esse projeto é apenas uma brincadeira entre amigos e não deve ser levado a sério.',
-    tech: ['React', 'TypeScript', 'BERT'],
+    tech: ['React', 'TypeScript'],
     show: true,
     links: {
       github: 'https://github.com/Brunovncs/loveflow',
