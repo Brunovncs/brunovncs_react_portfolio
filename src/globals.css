@@ -57,20 +57,11 @@ img.object-contain:hover {
 /* Efeito de zoom suave */
 .group:hover img {
   transform: scale(1.05);
-}
-
-/* Ajuste de transição */
-.transition-transform {
-  transition: transform 0.3s ease-in-out;
-}
-
-.transition-opacity {
-  transition: opacity 0.3s ease-in-out;
+  will-change: transform;
 }
 
 html {
   scroll-behavior: smooth;
-  transition: all 1000ms ease-in-out;
 }
 
 body {

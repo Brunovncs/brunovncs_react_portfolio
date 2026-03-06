@@ -1,8 +1,6 @@
-'use client';
 import { motion } from 'framer-motion';
 import { FiCode, FiDownload, FiSun, FiMoon } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
-// import Link from 'next/link';
 import SocialLinks from './SocialLinks';
 
 export default function Navbar() {
@@ -26,7 +24,6 @@ export default function Navbar() {
       animate={{ opacity: 1 }}
       className="fixed top-6 left-1/2 -translate-x-1/2 max-w-5xl w-[90%] flex justify-between items-center p-4 bg-neutral-100 dark:bg-neutral-900 backdrop-blur-sm z-50 rounded-3xl shadow-xl border border-neutral-300 dark:border-white/10 transition-colors duration-1000"
     >
-      {/* Lado Esquerdo com Logo e Ícone */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className="flex items-center gap-2 group transition-colors duration-1000"
@@ -37,7 +34,6 @@ export default function Navbar() {
         </span>
       </button>
 
-      {/* Lado Direito com Links */}
       <div className="flex items-center gap-4 md:gap-6 transition-colors duration-1000">
         <button
           onClick={toggleTheme}
