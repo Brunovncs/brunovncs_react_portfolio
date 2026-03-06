@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section className="flex items-center justify-center min-h-[60vh] px-6">
       <div className="flex flex-col md:flex-row items-center gap-10 w-full max-w-5xl">
@@ -31,7 +34,7 @@ export default function Hero() {
             Bruno Vinicius Veronez de Jesus
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 transition-colors duration-1000">
-            Back-end Developer
+            {t('hero.role')}
           </p>
           <a
             href="https://www.linkedin.com/company/hablla"
@@ -39,7 +42,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="text-base md:text-lg text-gray-500 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 inline-block"
           >
-            Currently working at Hablla
+            {t('hero.company')}
           </a>
         </motion.div>
       </div>

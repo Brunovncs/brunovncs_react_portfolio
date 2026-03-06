@@ -1,23 +1,20 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown, FiExternalLink } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
-const publications = [
+const publicationsMeta = [
   {
-    title: 'Deep Learning for Rhetorical Move Detection',
+    key: 'paper1',
     publisher: 'Sociedade Brasileira de Computação',
     date: 'Sep 2025',
-    description:
-      'Fine-tuned the BERTimbau language model on the CorpusDT dataset to identify rhetorical moves in Portuguese scientific abstracts, achieving an F1-score of 0.94 in sentence classification. Highlights the potential of NLP for enhancing the quality of academic writing in Portuguese.',
     url: 'https://sol.sbc.org.br/index.php/stil/article/view/37824',
     doi: 'https://doi.org/10.5753/stil.2025.37824',
   },
   {
-    title: 'Graphical Interface for Exascale Systems Simulation',
+    key: 'paper2',
     publisher: 'ERADSP 2023',
     date: '2023',
-    description:
-      'Contributed to the GUI of iSPD (Iconic Simulator of Parallel and Distributed Systems), a tool for performance analysis of large-scale distributed systems. Led the redesign and reimplementation of the interface in C++ using Qt, focusing on responsive design, event handling and efficient visualization of massive performance metrics.',
     url: 'https://www.researchgate.net/publication/373225279_Interface_Grafica_Para_Simulacao_De_Sistemas_Exascale',
     doi: 'https://doi.org/10.5753/eradsp.2023.231910',
   },
@@ -25,6 +22,7 @@ const publications = [
 
 export default function Publications() {
   const [open, setOpen] = useState(true);
+  const { t } = useTranslation();
 
   return (
     <section className={`${open ? 'py-20' : 'py-6'} transition-all duration-300`} id="publications">
@@ -38,7 +36,7 @@ export default function Publications() {
             whileInView={{ opacity: 1 }}
             className="text-3xl font-bold text-black dark:text-white transition-colors duration-1000"
           >
-            Publications
+            {t('publications.title')}
           </motion.h2>
           <FiChevronDown
             className={`w-6 h-6 text-purple-500 transition-transform duration-300 ${open ? 'rotate-180' : 'rotate-0'}`}
@@ -55,27 +53,25 @@ export default function Publications() {
               className="overflow-hidden"
             >
               <div className="grid gap-6">
-                {publications.map((pub, index) => (
+                {publicationsMeta.map((pub, index) => (
                   <motion.div
-                    key={index}
+                    key={pub.key}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     className="bg-gray-100 dark:bg-gray-900/50 border border-gray-300 dark:border-white/10 rounded-xl p-6 hover:border-purple-500/40 transition-colors duration-300"
                   >
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                      <div>
-                        <h3 className="text-lg font-bold text-black dark:text-white">
-                          {pub.title}
-                        </h3>
-                        <p className="text-sm text-purple-600 dark:text-purple-400 mt-0.5">
-                          {pub.publisher} · {pub.date}
-                        </p>
-                      </div>
+                    <div className="mb-3">
+                      <h3 className="text-lg font-bold text-black dark:text-white">
+                        {t(`publications.${pub.key}.title`)}
+                      </h3>
+                      <p className="text-sm text-purple-600 dark:text-purple-400 mt-0.5">
+                        {pub.publisher} · {pub.date}
+                      </p>
                     </div>
 
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                      {pub.description}
+                      {t(`publications.${pub.key}.description`)}
                     </p>
 
                     <div className="flex flex-wrap gap-3">
@@ -86,7 +82,7 @@ export default function Publications() {
                         className="flex items-center gap-1.5 text-sm px-4 py-1.5 bg-purple-500 hover:bg-purple-600 text-white rounded-full transition-colors duration-300"
                       >
                         <FiExternalLink className="w-4 h-4" />
-                        View paper
+                        {t('publications.viewPaper')}
                       </a>
                       <a
                         href={pub.doi}

@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
-const education = [
+const educationMeta = [
   {
+    key: 'unesp',
     institution: 'UNESP — Universidade Estadual Paulista',
-    degree: "Bachelor's degree, Computer Science",
     period: '2021 — Dec 2025',
     url: 'https://www.unesp.br',
   },
   {
+    key: 'etec',
     institution: 'Etec Philadelpho Gouvêa Netto',
-    degree: 'High School — Technical in Mechatronics',
     period: '2018 — 2020',
     url: null,
   },
@@ -19,6 +20,7 @@ const education = [
 
 export default function Education() {
   const [open, setOpen] = useState(true);
+  const { t } = useTranslation();
 
   return (
     <section className={`${open ? 'py-20' : 'py-6'} transition-all duration-300`} id="education">
@@ -32,7 +34,7 @@ export default function Education() {
             whileInView={{ opacity: 1 }}
             className="text-3xl font-bold text-black dark:text-white transition-colors duration-1000"
           >
-            Education
+            {t('education.title')}
           </motion.h2>
           <FiChevronDown
             className={`w-6 h-6 text-purple-500 transition-transform duration-300 ${open ? 'rotate-180' : 'rotate-0'}`}
@@ -49,9 +51,9 @@ export default function Education() {
               className="overflow-hidden"
             >
               <div className="relative border-l-2 border-purple-500/30 pl-8 space-y-8">
-                {education.map((item, index) => (
+                {educationMeta.map((item, index) => (
                   <motion.div
-                    key={index}
+                    key={item.key}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -77,7 +79,7 @@ export default function Education() {
                             </h3>
                           )}
                           <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-                            {item.degree}
+                            {t(`education.${item.key}.degree`)}
                           </p>
                         </div>
                         <span className="text-sm text-gray-500 dark:text-gray-500 whitespace-nowrap">

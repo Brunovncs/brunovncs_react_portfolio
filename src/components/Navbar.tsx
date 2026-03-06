@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { FiCode, FiDownload, FiSun, FiMoon } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import SocialLinks from './SocialLinks';
 
 export default function Navbar() {
   const [isDark, setIsDark] = useState(true);
+  const { t, i18n } = useTranslation();
+  const isEN = i18n.language === 'en';
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -16,6 +19,12 @@ export default function Navbar() {
     localStorage.setItem('theme', newTheme);
     document.documentElement.classList.toggle('dark', !isDark);
     setIsDark(!isDark);
+  };
+
+  const toggleLang = () => {
+    const newLang = isEN ? 'pt' : 'en';
+    i18n.changeLanguage(newLang);
+    localStorage.setItem('lang', newLang);
   };
 
   return (
@@ -46,8 +55,15 @@ export default function Navbar() {
           )}
         </button>
 
+        <button
+          onClick={toggleLang}
+          className="text-sm font-semibold px-3 py-1 rounded-full border border-neutral-300 dark:border-white/10 text-black dark:text-white hover:border-purple-500 dark:hover:border-purple-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
+        >
+          {isEN ? 'PT' : 'EN'}
+        </button>
+
         <a href="#skills" className="text-black dark:text-white hover:text-purple-600 dark:hover:text-purple-300 transition-colors duration-1000 hidden md:block">
-          Projects
+          {t('navbar.projects')}
         </a>
 
         <SocialLinks />
@@ -62,7 +78,7 @@ export default function Navbar() {
           className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 p-2 md:px-4 md:py-2 rounded-full transition-colors duration-1000 text-white"
         >
           <FiDownload className="w-4 h-4" />
-          <span className="hidden md:block">Resume</span>
+          <span className="hidden md:block">{t('navbar.resume')}</span>
         </motion.a>
       </div>
     </motion.nav>

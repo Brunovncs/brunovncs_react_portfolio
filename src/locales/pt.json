@@ -1,0 +1,81 @@
+{
+  "navbar": {
+    "projects": "Projetos",
+    "resume": "Currículo"
+  },
+  "hero": {
+    "role": "Desenvolvedor Back-end",
+    "company": "Atualmente trabalhando na Hablla"
+  },
+  "experience": {
+    "title": "Experiência",
+    "fullTime": "Tempo integral",
+    "internship": "Estágio · Remota",
+    "backendDev": {
+      "role": "Desenvolvedor Back-end",
+      "period": "Jan 2026 — Presente",
+      "bullets": [
+        "Desenvolvimento e manutenção de serviços back-end escaláveis com Go (Golang), com foco em performance, concorrência e arquitetura limpa.",
+        "Trabalho com MongoDB para persistência de dados e Redis para estratégias de cache e otimização de desempenho."
+      ]
+    },
+    "intern": {
+      "role": "Estagiário — Suporte & Desenvolvedor Front-end",
+      "period": "Out 2024 — Dez 2025",
+      "bullets": [
+        "Atuei no setor de suporte por 3 meses, adquirindo conhecimento profundo sobre a plataforma, seus fluxos, APIs e integrações de terceiros.",
+        "Migrei para a equipe de desenvolvimento como desenvolvedor front-end, criando componentes de fluxos e integrando APIs de terceiros com React, TypeScript, Redux, Redux Saga e Vite.",
+        "Participei do desenvolvimento de uma interface para agente de IA, contribuindo no planejamento e implementação da UI para agentes autônomos.",
+        "Participei regularmente de reuniões com clientes, desenvolvendo forte entendimento de regras de negócio e comunicação com stakeholders."
+      ]
+    }
+  },
+  "education": {
+    "title": "Formação Acadêmica",
+    "unesp": {
+      "degree": "Bacharelado, Ciência da Computação"
+    },
+    "etec": {
+      "degree": "Ensino Médio — Técnico em Mecatrônica"
+    }
+  },
+  "publications": {
+    "title": "Publicações",
+    "viewPaper": "Ver artigo",
+    "paper1": {
+      "title": "Aprendizado Profundo para Detecção de Movimentos Retóricos",
+      "description": "Ajuste fino do modelo BERTimbau no dataset CorpusDT para identificar movimentos retóricos em resumos científicos em português, alcançando F1-score de 0,94 em classificação de sentenças. Destaca o potencial de modelos NLP para aprimorar a escrita acadêmica em português."
+    },
+    "paper2": {
+      "title": "Interface Gráfica Para Simulação De Sistemas Exascale",
+      "description": "Contribuí para a GUI do iSPD (Simulador Icônico de Sistemas Paralelos e Distribuídos), ferramenta para análise de desempenho de sistemas distribuídos em larga escala. Liderou a reimplementação da interface em C++ com Qt, com foco em design responsivo, tratamento de eventos e visualização de métricas de desempenho."
+    }
+  },
+  "skills": {
+    "title": "Minhas habilidades"
+  },
+  "projects": {
+    "title": "Projetos recentes",
+    "code": "Código",
+    "seeOnline": "Ver online",
+    "seeDetails": "Ver detalhes",
+    "anota": {
+      "description": "Aplicativo de flashcards inspirado no Anki.",
+      "detailDescription": "O objetivo do AnotaAI é criar uma aplicação onde os usuários podem adicionar, revisar, editar e excluir flashcards em diferentes coleções."
+    },
+    "opsSys": {
+      "description": "Interface interativa usando ncurses e tecnologias de baixo nível para manipulação de tarefas.",
+      "detailDescription": "Simulador de Sistema Operacional com interface ncurses, onde é possível manipular processos e simular como um SO usa threads e semáforos para leitura e escrita de tarefas. Demonstra também a possibilidade de deadlocks no sistema."
+    },
+    "speech": {
+      "description": "Projeto usando threads e o modelo Whisper da OpenAI para converter fala em texto.",
+      "detailDescription": "Aplicação desktop para transcrição de áudio com alta precisão, desenvolvida em Python e PySide6. Possui troca dinâmica de modelos Whisper. Operações intensivas são executadas em threads separadas via QThread, mantendo a interface sempre responsiva."
+    },
+    "swales": {
+      "description": "Aplicação web com modelo BERT em ONNX/PyTorch para auxiliar estudantes na escrita de artigos científicos, com feedback em tempo real sobre estrutura e coerência."
+    },
+    "loveflow": {
+      "description": "Aplicação web de CRM focado em relacionamentos amorosos, ajudando usuários a organizar suas interações com potenciais parceiros. Apenas uma brincadeira entre amigos."
+    }
+  }
+}

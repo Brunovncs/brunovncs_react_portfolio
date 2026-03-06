@@ -1,0 +1,81 @@
+{
+  "navbar": {
+    "projects": "Projects",
+    "resume": "Resume"
+  },
+  "hero": {
+    "role": "Back-end Developer",
+    "company": "Currently working at Hablla"
+  },
+  "experience": {
+    "title": "Experience",
+    "fullTime": "Full-time",
+    "internship": "Internship · Remote",
+    "backendDev": {
+      "role": "Back-end Developer",
+      "period": "Jan 2026 — Present",
+      "bullets": [
+        "Developing and maintaining scalable back-end services using Go (Golang), with focus on performance, concurrency and clean architecture.",
+        "Working with MongoDB for data persistence and Redis for caching strategies and performance optimization."
+      ]
+    },
+    "intern": {
+      "role": "Intern — Support & Front-end Developer",
+      "period": "Oct 2024 — Dec 2025",
+      "bullets": [
+        "Started in the support team for 3 months, gaining deep knowledge of the platform, its flows, APIs and third-party integrations.",
+        "Moved to the dev team as a front-end developer, building flow components and integrating third-party APIs using React, TypeScript, Redux, Redux Saga and Vite.",
+        "Participated in the development of an AI agent interface, contributing to the planning and implementation of the UI for autonomous agents.",
+        "Attended client meetings regularly, developing a strong understanding of business rules and stakeholder communication."
+      ]
+    }
+  },
+  "education": {
+    "title": "Education",
+    "unesp": {
+      "degree": "Bachelor's degree, Computer Science"
+    },
+    "etec": {
+      "degree": "High School — Technical in Mechatronics"
+    }
+  },
+  "publications": {
+    "title": "Publications",
+    "viewPaper": "View paper",
+    "paper1": {
+      "title": "Deep Learning for Rhetorical Move Detection",
+      "description": "Fine-tuned the BERTimbau language model on the CorpusDT dataset to identify rhetorical moves in Portuguese scientific abstracts, achieving an F1-score of 0.94 in sentence classification. Highlights the potential of NLP for enhancing the quality of academic writing in Portuguese."
+    },
+    "paper2": {
+      "title": "Graphical Interface for Exascale Systems Simulation",
+      "description": "Contributed to the GUI of iSPD (Iconic Simulator of Parallel and Distributed Systems), a tool for performance analysis of large-scale distributed systems. Led the redesign and reimplementation of the interface in C++ using Qt, focusing on responsive design, event handling and efficient visualization of massive performance metrics."
+    }
+  },
+  "skills": {
+    "title": "My skills"
+  },
+  "projects": {
+    "title": "Recent projects",
+    "code": "Code",
+    "seeOnline": "See online",
+    "seeDetails": "See details",
+    "anota": {
+      "description": "Flashcards app inspired by Anki.",
+      "detailDescription": "The primary goal of AnotaAI is to create an application where users can add, review, edit, and delete flashcards in different collections."
+    },
+    "opsSys": {
+      "description": "Interactive interface using ncurses and low-level technologies to manipulate tasks.",
+      "detailDescription": "Operational System simulator with an ncurses interface, where you can manipulate process info and simulate how an OS uses threads and semaphors to read and write tasks. Also demonstrates the possibility of deadlocks in the system."
+    },
+    "speech": {
+      "description": "A project using threads and OpenAI's Whisper model to convert speech to text.",
+      "detailDescription": "Desktop application for high-accuracy audio transcription built with Python and PySide6. Features dynamic Whisper model switching on the fly. All intensive operations are offloaded to background threads via QThread, keeping the UI fully responsive at all times."
+    },
+    "swales": {
+      "description": "Web application with a BERT model (ONNX/PyTorch) to help students write scientific articles, providing real-time feedback on structure and coherence."
+    },
+    "loveflow": {
+      "description": "Web CRM app focused on romantic relationships, helping users organize interactions with potential partners. Just a joke between friends — not to be taken seriously."
+    }
+  }
+}

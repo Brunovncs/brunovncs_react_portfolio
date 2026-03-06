@@ -1,115 +1,90 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink, FiInfo, FiX, FiChevronLeft, FiChevronRight, FiZoomIn } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 import { Project } from '../types';
 
-const projects = [
+const projectsMeta = [
   {
     id: 1,
+    key: 'anota',
     title: 'AnotaAI',
-    description: 'Flashcards app inspired by Anki',
     tech: ['React Native', 'Javascript', 'Jupyter'],
     show: true,
     links: {
       github: 'https://github.com/Brunovncs/AnotaAI',
-      live: {
-        url: 'https://exemplo.com',
-        show: false,
-      },
+      live: { url: 'https://exemplo.com', show: false },
     },
     details: {
       show: true,
-      description: 'The primary goal of AnotaAI is to create an application where users can add, review, edit, and delete flashcards in different collections.',
       images: [
         '/pngs/anotaAI/loginScreen.png',
         '/pngs/anotaAI/cardsScreen.png',
-        '/pngs/anotaAI/cardScreen.png'
+        '/pngs/anotaAI/cardScreen.png',
       ],
     },
   },
   {
     id: 2,
-    title: 'Operational System simulator',
-    description: 'Here I develop an interactive interface using ncurses and low-level technologies to manipulate tasks.',
+    key: 'opsSys',
+    title: 'Operational System Simulator',
     tech: ['C', 'ncurses', 'threads', 'semaphors'],
     show: true,
     links: {
       github: 'https://github.com/Brunovncs/opsysSim',
-      live: {
-        url: 'https://exemplo.com',
-        show: false,
-      },
+      live: { url: 'https://exemplo.com', show: false },
     },
     details: {
       show: true,
-      description: 'Operational System simulator. Here I develop an interactive interface using ncurses, where you can manipulate infos about processes and simulate how an operational system uses complex concepts of threads and semaphors to read and write tasks. I even demonstrate the possibility of deadlocks happening in the system.',
       images: [
         '/pngs/opsSysSim/main_interface.png',
         '/pngs/opsSysSim/process_running.png',
         '/pngs/opsSysSim/semaphor.png',
-        '/pngs/opsSysSim/finished.png'
+        '/pngs/opsSysSim/finished.png',
       ],
     },
   },
   {
     id: 3,
-    title: 'Speech to text AI software (Speech2Text)',
-    description: 'A little project using threads and Whisper (an OpenAI model) to convert speech to text.',
+    key: 'speech',
+    title: 'Speech to Text (Speech2Text)',
     tech: ['Python', 'Qt', 'Threads', 'Signals'],
     show: true,
     links: {
       github: 'https://github.com/Brunovncs/speechtotext',
-      live: {
-        url: 'https://exemplo.com',
-        show: false,
-      },
+      live: { url: 'https://exemplo.com', show: false },
     },
     details: {
       show: true,
-      description: 'This project is a desktop application for high-accuracy audio transcription, built with Python and PySide6. Its core feature is a dynamic model-switching system that allows the user to choose the best balance between speed and accuracy by selecting different OpenAI Whisper models on the fly. To ensure a smooth, non-blocking user experience, all intensive operations—such as loading multi-gigabyte AI models and running the transcription—are offloaded to separate background threads using Qts QThread. This architecture guarantees the UI remains fully responsive at all times, demonstrating a practical application of multithreading in a desktop GUI environment.',
       images: [
         '/pngs/speech2text/interface.png',
-        '/pngs/speech2text/interface_transcript.png'
+        '/pngs/speech2text/interface_transcript.png',
       ],
     },
   },
   {
     id: 4,
+    key: 'swales',
     title: 'Swales - Scientific Writing',
-    description: 'Web application with an BERT AI model ported in ONNX and trained with pytorch to help students and researchers write scientific articles. The application provides real-time feedback on the structure and coherence of the text.',
     tech: ['React', 'TypeScript', 'BERT'],
     show: true,
     links: {
       github: 'https://github.com/Brunovncs/SwalesScientificWriting',
-      live: {
-        url: 'https://swales.com.br',
-        show: true,
-      },
+      live: { url: 'https://swales.com.br', show: true },
     },
-    details: {
-      show: false,
-      description: 'Web application with an BERT AI model ported in ONNX and trained with pytorch to help students and researchers write scientific articles. The application provides real-time feedback on the structure and coherence of the text.',
-      images: [],
-    },
+    details: { show: false, images: [] },
   },
   {
     id: 5,
-    title: 'Loveflow - Manage your contatinhos',
-    description: 'Aplicação web de um CRM focado em relacionamentos amorosos, ajudando usuários a organizar e acompanhar suas interações com potenciais parceiros. Esse projeto é apenas uma brincadeira entre amigos e não deve ser levado a sério.',
+    key: 'loveflow',
+    title: 'Loveflow',
     tech: ['React', 'TypeScript'],
     show: true,
     links: {
       github: 'https://github.com/Brunovncs/loveflow',
-      live: {
-        url: 'https://loveflow.vercel.app/',
-        show: true,
-      },
+      live: { url: 'https://loveflow.vercel.app/', show: true },
     },
-    details: {
-      show: false,
-      description: '',
-      images: [],
-    },
+    details: { show: false, images: [] },
   },
 ];
 
@@ -117,6 +92,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { t } = useTranslation();
 
   const goToNextImage = () => {
     const images = selectedProject?.details?.images;
@@ -127,18 +103,24 @@ export default function Projects() {
   const goToPrevImage = () => {
     const images = selectedProject?.details?.images;
     if (!images || images.length === 0) return;
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
+    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   const openModal = (project: Project): void => {
     setSelectedProject(project);
+    setCurrentImageIndex(0);
   };
 
-  const closeModal = () => {
-    setSelectedProject(null);
-  };
+  const closeModal = () => setSelectedProject(null);
+
+  const projects = projectsMeta.map((p) => ({
+    ...p,
+    description: t(`projects.${p.key}.description`),
+    details: {
+      ...p.details,
+      description: p.details.show ? t(`projects.${p.key}.detailDescription`) : '',
+    },
+  }));
 
   return (
     <section className="py-20 transition-colors duration-1000" id="projects">
@@ -148,7 +130,7 @@ export default function Projects() {
           whileInView={{ opacity: 1 }}
           className="text-3xl font-bold mb-12 text-black dark:text-white transition-colors duration-1000"
         >
-          Recent projects
+          {t('projects.title')}
         </motion.h2>
 
         <div className="grid gap-8 md:grid-cols-2">
@@ -192,7 +174,7 @@ export default function Projects() {
                       className="flex items-center gap-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-1000 text-black dark:text-white"
                     >
                       <FiGithub className="w-5 h-5" />
-                      Code
+                      {t('projects.code')}
                     </a>
 
                     {project.links?.live?.show && (
@@ -203,7 +185,7 @@ export default function Projects() {
                         className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 rounded-2xl transition-colors duration-1000 text-white"
                       >
                         <FiExternalLink className="w-5 h-5" />
-                        See online
+                        {t('projects.seeOnline')}
                       </a>
                     )}
 
@@ -213,7 +195,7 @@ export default function Projects() {
                         className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 rounded-2xl transition-colors duration-1000 text-white"
                       >
                         <FiInfo className="w-5 h-5" />
-                        See details
+                        {t('projects.seeDetails')}
                       </button>
                     )}
                   </div>
@@ -228,11 +210,11 @@ export default function Projects() {
           className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-90 z-50"
           onClick={closeModal}
         >
-          <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl relative max-w-3xl w-full border-[1px] border-purple-500 mx-4 max-h-[80vh] overflow-y-auto">
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-            >
+          <div
+            className="bg-white dark:bg-gray-900 p-6 rounded-2xl relative max-w-3xl w-full border-[1px] border-purple-500 mx-4 max-h-[80vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button onClick={closeModal} className="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
               <FiX className="w-6 h-6" />
             </button>
             <h2 className="text-2xl font-bold mb-4 text-black dark:text-white text-center">
@@ -248,14 +230,14 @@ export default function Projects() {
                     <div
                       key={index}
                       className="relative h-48 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden cursor-pointer group"
-                      onClick={() => setFullscreenImage(image)}
+                      onClick={() => { setFullscreenImage(image); setCurrentImageIndex(index); }}
                     >
                       <img
                         src={image}
-                        alt={`${selectedProject.title} - Imagem ${index + 1}`}
+                        alt={`${selectedProject.title} - ${index + 1}`}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <FiZoomIn className="w-8 h-8 text-white" />
                       </div>
@@ -276,7 +258,7 @@ export default function Projects() {
           <div className="relative max-w-full max-h-full">
             <img
               src={selectedProject.details.images[currentImageIndex]}
-              alt="Imagem em tela cheia"
+              alt="Fullscreen"
               className="object-contain"
               style={{ maxWidth: '100%', maxHeight: '90vh' }}
             />

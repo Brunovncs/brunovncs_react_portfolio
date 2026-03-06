@@ -1,17 +1,14 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const skills = [
-  'React',
-  'Vite',
-  'TypeScript',
-  'Next.js',
-  'Tailwind CSS',
-  'Node.js',
-  'Go',
-  'C',
+  'React', 'Vite', 'TypeScript', 'Next.js',
+  'Tailwind CSS', 'Node.js', 'Go', 'C',
 ];
 
 export default function Skills() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-20 transition-colors duration-1000" id="skills">
       <div className="max-w-5xl mx-auto px-4">
@@ -20,7 +17,7 @@ export default function Skills() {
           whileInView={{ opacity: 1 }}
           className="text-3xl font-bold mb-12 text-black dark:text-white transition-colors duration-1000"
         >
-          My skills
+          {t('skills.title')}
         </motion.h2>
 
         <div className="flex flex-wrap gap-3">
