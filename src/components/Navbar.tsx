@@ -73,7 +73,7 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          href="/files/curriculoen.pdf"
+          href={isEN ? "/files/curriculoen.pdf" : "/files/curriculo_BrunoV.pdf"}
           download
           className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 p-2 md:px-4 md:py-2 rounded-full transition-colors duration-1000 text-white"
         >
